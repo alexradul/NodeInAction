@@ -1,0 +1,16 @@
+{
+  "name": "module-sample",
+  "version": "1.0.0",
+  "description": "This is a sample project to demonstrate exports of the Node modules. ",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "modules",
+    "exports",
+    "learning"
+  ],
+  "author": "Aleksandar Radulovic",
+  "license": "ISC"
+}
