@@ -11,6 +11,10 @@ channel.on('join', (id, client) => {
     }
   };
   channel.on('broadcast', channel.subscriptions[id]);
+  const welcomeMessage = `
+    Welcome!
+    Guests online: ${channel.listeners('broadcast').length}
+  `;
 });
 channel.on('leave', id => {
   channel.removeListener('broadcast', channel.subscriptions[id]);
@@ -20,6 +24,10 @@ channel.on('shutdown', () => {
   channel.emit('broadcast', '', 'The server is shutting down.\n');
   channel.removeAllListeners('broadcast');
 });
+// to increase the number of listeners that an event emitter has
+// and to awoid warning that Node displays,
+// use setMaxListeners method.
+channel.setMaxListeners(50);
 
 const server = net.createServer(client => {
   const id = `${client.remoteAddress}:${client.remotePort}`
