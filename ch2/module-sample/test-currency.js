@@ -1,5 +1,5 @@
-const currency = require("./currency");
+const CurrencyExchange = require("./currency");
 
-const cash = 50;
-console.log(`${cash} canadian dolars when converted to US dolars are ${currency.canadianToUS(cash)}`);
-console.log(`${cash} Canadian dolars when converted to US dolars are ${currency.UStoCanadian(cash)}`);
+const eurosExchangeRate = new CurrencyExchange(122.3);
+
+console.log(`300 euros is ${eurosExchangeRate.convert(300)}`);
