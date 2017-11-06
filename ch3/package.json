@@ -4,6 +4,7 @@
   "description": "Read-it-later web application that demonstrates Node capabilities",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "alexradul",
