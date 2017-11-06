@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const articles = [{ title: 'Example'}];
+const Article = require('./db').Article;
 
 const port = process.env.PORT || 3000;
 
@@ -14,7 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true}));
 * get all articles
 */
 app.get('/articles', (req, res, next) => {
-  res.send(articles);
+  Article.all((err, articles) => {
+    if (err)
+      return next(err);
+    res.send(articles);
+  });
 });
 
 /**
@@ -22,7 +26,7 @@ app.get('/articles', (req, res, next) => {
 */
 app.post('/articles', (req, res, next) => {
   const article = {title: req.body.title};
-  articles.push(article);
+  // articles.push(article);
   res.send(article);
 });
 
@@ -31,22 +35,27 @@ app.post('/articles', (req, res, next) => {
 */
 app.get('/articles/:id', (req, res, next) => {
   const id = req.params.id;
-  console.log('Fetching article: ', id);
-  res.send(articles[id]);
+  Article.find(id, (err, article) => {
+    if (err)
+      return next(err);
+    res.send(article);
+  });
 });
 
 /**
-* gets a single article
+* deletes a single article
 */
 app.delete('/articles/:id', (req, res, next) => {
   const id = req.params.id;
-  console.log('Deleting article: ', id);
-  delete articles[id];
-  res.send({ message: 'Deleted'});
+  Article.delete(id, (err) => {
+    if (err)
+      return next(err);
+    res.send({ message: 'Deleted'});
+  })
 });
 
 app.listen(app.get('port'), () => {
   console.log(`Express web app available at localhost: ${port}`);
-})
+});
 
 module.exports = app;
