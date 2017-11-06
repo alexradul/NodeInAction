@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const articles = [{ title: 'Example'}];
 
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello world');
-});
+app.set('port', port);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
 
 /**
 * get all articles
@@ -19,7 +21,9 @@ app.get('/articles', (req, res, next) => {
 * creates an article
 */
 app.post('/articles', (req, res, next) => {
-  res.send('OK');
+  const article = {title: req.body.title};
+  articles.push(article);
+  res.send(article);
 });
 
 /**
@@ -41,6 +45,8 @@ app.delete('/articles/:id', (req, res, next) => {
   res.send({ message: 'Deleted'});
 });
 
-app.listen(port, () => {
+app.listen(app.get('port'), () => {
   console.log(`Express web app available at localhost: ${port}`);
 })
+
+module.exports = app;
