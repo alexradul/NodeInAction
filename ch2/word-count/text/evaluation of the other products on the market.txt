@@ -1,6 +1,5 @@
-Astah 
+Astah
 
-StarUML: missing profile support, not open source. This JavaScript version of the application does not have, in my opionion, that good user expirience as the previous, native version. 
+StarUML: missing profile support, not open source. This JavaScript version of the application does not have, in my opionion, that good user expirience as the previous, native version.
 
 ArgoUML: Java app, bad customer feedback
-
