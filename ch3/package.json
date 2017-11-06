@@ -1,0 +1,14 @@
+{
+  "name": "later",
+  "version": "1.0.0",
+  "description": "Read-it-later web application that demonstrates Node capabilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alexradul",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
