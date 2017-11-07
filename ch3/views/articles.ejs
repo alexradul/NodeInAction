@@ -1,0 +1,17 @@
+<% include head %>
+  <nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+  </nav>
+  <div class="card-group">
+    <% articles.forEach( article => { %>
+      <div class="card border-primary mb-3">
+        <div class="card-body">
+          <h4 class="card-title"><%= article.title %></h4>
+          <a href="/articles/<%= article.id %>" class="btn btn-primary">Readme</a>
+        </div>
+      </div>
+      <% })%>
+  </div>
+  <% include foot %>

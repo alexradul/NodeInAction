@@ -1,0 +1,3 @@
+http -f post :3000/articles title='Ivkić barabić'
+http get :3000/articles
+http get :3000/articles/0
