@@ -11,6 +11,11 @@ app.set('port', port);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
+app.use(
+  '/css/bootstrap.css',
+  express.static('node_modules/bootstrap/dist/css/bootstrap.css')
+);
+
 /**
 * get all articles
 */
@@ -56,7 +61,14 @@ app.get('/articles/:id', (req, res, next) => {
   Article.find(id, (err, article) => {
     if (err)
       return next(err);
-    res.send(article);
+    res.format({
+      html: () => {
+        res.render('article.ejs', {article: article});
+      },
+      json: () => {
+        res.send(article);
+      }
+    });
   });
 });
 
