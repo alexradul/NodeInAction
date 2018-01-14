@@ -1,0 +1,33 @@
+{
+  "name": "commonjs-example",
+  "version": "1.0.0",
+  "description": "Example that demonstrates usage of gulp and webpack in the simple node application. ",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "common-js",
+    "gulp",
+    "webpack"
+  ],
+  "author": "Alex Radul",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-minify": "^0.2.0",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^2.1.0",
+    "webpack": "^3.10.0"
+  }
+}
